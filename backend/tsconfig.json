@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+        "builder": "swc",
+		"module": "CommonJS",
+        "moduleResolution": "node16",
+		"target": "es2021",
+		"removeComments": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
+		"sourceMap": true,
+		"outDir": "./dist",
+		"baseUrl": "./",
+		"incremental": true,
+		"skipLibCheck": true,
+		"strictBindCallApply": true,
+		"forceConsistentCasingInFileNames": false,
+		"noFallthroughCasesInSwitch": true,
+        "noUncheckedIndexedAccess": true,
+		"strict": true,
+        "noImplicitAny": true
+	}
+}

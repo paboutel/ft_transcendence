@@ -1,0 +1,39 @@
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    restart: no
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+
+  # Nest
+  backend:
+    env_file:
+      - .env
+    container_name: backend
+    build:
+      context: ./
+    restart: no
+    depends_on:
+      - postgres
+    ports:
+      - '3000:3000'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  #nginx
+  # frontend:
+  #   container_name: frontend
+  #   image:nginx
+  #   build:
+  #     context: frontend/
+  #   restart: always
+  #   depends_on:
+  #     - backend
+  #   ports:
+  #     - '8080:8080'

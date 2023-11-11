@@ -1,0 +1,27 @@
+# Backend :
+
+-   [x] Finir la transition en mode strict
+-   [x] Finir le refacto du module chan
+-   [x] Finir la transition à zod
+-   [x] Passer en transaction ce qui doit l'être avec prisma
+-   [ ] Testing against regression
+-   [x] Connexion multiple d'un même utilisateur au sse
+-   [ ] status avec le sse (quand un user se log il doit savoir qui de sa liste d'amis est logged-in)
+-   [ ] sse notif quand un user se login ou se logout à sa liste d'amis
+-   [x] refactor user pour avoir /me (mes infos) et /:username profil public d'un utilisateur
+-   [ ] login redirect sur /me (peut-être pas possible de redirect une requête POST sur une requête GET)
+-   [x] route pour GET un dmElement par Id pour les relatedTo
+-   [x] route pour update un message
+-   [ ] dans les contrats, mettre les params redondant sous forme de var (example : content de msg: z.string().nonempty().max(150))
+-   [ ] pour ce qui est des bans n'exposer la liste des bans dans les chans qu'aux users ayant la perm de ban (format chan)
+-   [ ] faire les bans / kick avec une raison
+-   [x] régler la confusion entre message et element aussi bien dans le code du backend que dans les routes exposée dans l'api
+-   [x] remove toute les dépendances pnpm qui ne sont plus nécéssaires
+-   [ ] remettre les filtres prisma en place maintenant que je me suis débarrassé de nestjs-prisma
+-   [ ] passer sur la nouvelle version de ts-rest/nest
+-   [ ] add les photos de profils
+-   [ ] route pour update un message dans les chans
+-   [ ] route pour update un chan
+-   [ ] simplifier les modules (peut-être certains services regroupés dans un seul module, peut-être passer sse en global par ex vu que lui n'importe aucun autre module)
+-   [ ] essayer de s'interroger sur l'intérêt d'avoir certaines fonctions en async (si c'est pour les await de toutes façon ça n'a pas d'intérêt sauf dans le cadre d'un endpoint ou d'une fonction qui doit être async pour elle-même pouvoir use une fonction d'une lib qui l'est)
+-   [ ] tester de ne pas await certaines fonctions async si le résultat ou l'ordre d'exécution ne sont pas importants

@@ -1,0 +1,38 @@
+{
+  "name": "transcendance",
+  "version": "1.0.0",
+  "description": "A webapp to play pong and chat with your friends",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "start": "pnpm --stream --recursive --sort run start",
+    "start:prod": "pnpm --stream --recursive --sort run start:prod",
+    "dev": "pnpm --parallel --stream -r run dev",
+    "build": "pnpm install && pnpm --recursive --sort run --stream build",
+    "build:back": "pnpm install && pnpm --recursive --sort run --stream build:back",
+    "build:front": "pnpm install && pnpm --recursive --sort run --stream build:front",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "studio": "pnpm exec prisma studio --schema='./prisma-dummy/schema.prisma' ",
+    "generate": "pnpm exec prisma generate --schema='./prisma-dummy/schema.prisma' ",
+    "db:reset": "pnpm exec prisma db push --force-reset --schema='./prisma-dummy/schema.prisma'",
+    "migrate:dev": "pnpm exec prisma migrate dev --schema='./prisma-dummy/schema.prisma' ",
+    "migrate:reset": "pnpm exec prisma migrate reset --schema='./prisma-dummy/schema.prisma'"
+  },
+  "keywords": [],
+  "author": "6e696e6f+cassepipe",
+  "license": "MIT",
+  "pnpm": {
+    "patchedDependencies": {
+      "http-proxy@1.18.1": "patches/http-proxy@1.18.1.patch",
+      "@gabrola/zod-prisma@0.11.0": "patches/@gabrola__zod-prisma@0.11.0.patch"
+    }
+  },
+  "dependencies": {
+    "@anatine/zod-openapi": "^2.2.0",
+    "@nestjs/common": "^10.2.4",
+    "@ts-rest/core": "^3.30.0",
+    "@ts-rest/nest": "^3.30.0",
+    "@ts-rest/open-api": "^3.30.0",
+    "dotenv-cli": "^7.3.0",
+    "zod": "^3.22.2"
+  }
+}
